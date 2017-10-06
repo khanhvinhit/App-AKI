@@ -11,12 +11,15 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Threading;
 using System.Windows.Forms;
+using MaterialFormSkin.DAO;
 using YoutubeExtractor;
 
 namespace MaterialFormSkin
 {
     public partial class MaterialMain : MaterialForm
     {
+        #region Properties
+
         private const double timerUpdate = 1000;
         private NetworkInterface[] nicArr;
         private System.Windows.Forms.Timer timer;
@@ -29,10 +32,12 @@ namespace MaterialFormSkin
         Boolean b = false, play = false, mute = false;
         int song = 0;
         string link, linkphu;
-        #region method
-        /// <summary>
-        /// Load Data
-        /// </summary>
+        Stopwatch Stopwatch = new Stopwatch();
+
+        private DAO.ChessBoardManager chessBoard;
+
+        #endregion
+        #region Initialize
         public MaterialMain()
         {
             InitializeComponent();
@@ -47,9 +52,28 @@ namespace MaterialFormSkin
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
             InitializeTimer();
+            //Vẽ khung
+            chessBoard = new ChessBoardManager(pn, txtNameClient, picMark);
+            chessBoard.EndedGame += ChessBoard_EndedGame;
+            chessBoard.PlayerMarked += ChessBoard_PlayerMarked;
+            prbCoolDown.Step = Cons.COOL_DOWN_STEP;
+            prbCoolDown.Maximum = Cons.COOL_DOWN_TIME;
+            prbCoolDown.Value = 0;
+            timerCoolDown.Interval = Cons.COOL_DOWN_INTERVAL;
+
+            chessBoard.DrawChessBoard();
+
         }
 
-        Stopwatch Stopwatch = new Stopwatch();
+        #endregion
+        #region method
+
+        void EndGame()
+        {
+            timerCoolDown.Stop();
+            pn.Enabled = false;
+            MessageBox.Show("Kết thúc");
+        }
         /// <summary>
         /// List Nhac
         /// </summary>
@@ -286,8 +310,19 @@ namespace MaterialFormSkin
                     break;
             }
         }
+
         #endregion
         #region Event
+
+        void ChessBoard_PlayerMarked(object sender, EventArgs e)
+        {
+            timerCoolDown.Start();
+            prbCoolDown.Value = 0;
+        }
+        void ChessBoard_EndedGame(object sender, EventArgs e)
+        {
+            EndGame();
+        }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -526,8 +561,8 @@ namespace MaterialFormSkin
                     lbKT.Text = "";
                     btnWatch.Enabled = false;
                     btnWatch.Visible = false;
-                    progressBar1.Minimum = 0;
-                    progressBar1.Maximum = 100;
+                    prbDownload.Minimum = 0;
+                    prbDownload.Maximum = 100;
                     IEnumerable<VideoInfo> videos = DownloadUrlResolver.GetDownloadUrls(txtLink.Text);
                     var kt = videos.FirstOrDefault(p => p.Resolution == Convert.ToInt32(cobResolution.Text));
                     if (kt != null)
@@ -556,33 +591,10 @@ namespace MaterialFormSkin
                     {
                         lbKT.Text = "Độ phân giải không phù hợp!";
                     }
-
                 }
-
             }
-
-
         }
-        private void DownloadProgressChanged(object sender, ProgressEventArgs e)
-        {
-            Invoke(new MethodInvoker(delegate ()
-            {
-                progressBar1.Value = (int)e.ProgressPercentage;
-                lblPercent.Text = $"{string.Format("{0:0,##}", e.ProgressPercentage)}%";
-                progressBar1.Update();
-                if (e.ProgressPercentage == 100)
-                {
-                    btnWatch.Enabled = true;
-                    btnWatch.Visible = true;
-                    txtLink.Text = "";
-                    txtPath.Text = "";
-                    linkphu = link;
-                    link = "";
-                    lbKT.Text = "Tải xong!";
-                    progressBar1.Value = 0;
-                }
-            }));
-        }
+
 
         private void btnPath_Click(object sender, EventArgs e)
         {
@@ -607,6 +619,16 @@ namespace MaterialFormSkin
             Process.Start(linkphu);
         }
 
+        private void timerCoolDown_Tick(object sender, EventArgs e)
+        {
+            prbCoolDown.PerformStep();
+            if (prbCoolDown.Value >= prbCoolDown.Maximum)
+            {
+                EndGame();
+                
+            }
+        }
+
         private void list_FileNhac_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
@@ -623,6 +645,26 @@ namespace MaterialFormSkin
                 displayList(openFileDialog1.FileNames);
 
             }
+        }
+        private void DownloadProgressChanged(object sender, ProgressEventArgs e)
+        {
+            Invoke(new MethodInvoker(delegate ()
+            {
+                prbDownload.Value = (int)e.ProgressPercentage;
+                lblPercent.Text = string.Format("{0:0,##}", e.ProgressPercentage) + "%";
+                prbDownload.Update();
+                if (e.ProgressPercentage == 100)
+                {
+                    btnWatch.Enabled = true;
+                    btnWatch.Visible = true;
+                    txtLink.Text = "";
+                    txtPath.Text = "";
+                    linkphu = link;
+                    link = "";
+                    lbKT.Text = "Tải xong!";
+                    prbDownload.Value = 0;
+                }
+            }));
         }
         #endregion
 

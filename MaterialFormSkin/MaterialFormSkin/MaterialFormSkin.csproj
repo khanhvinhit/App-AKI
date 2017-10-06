@@ -110,6 +110,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\ChessBoardManager.cs" />
+    <Compile Include="DAO\Cons.cs" />
+    <Compile Include="DTO\Player.cs" />
     <Compile Include="MaterialMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\x.png" />
+    <None Include="Resources\o.png" />
     <None Include="Resources\ic_not_interested_white_24dp.png" />
     <None Include="Resources\ic_playlist_add_black_24dp.png" />
     <None Include="Resources\ic_playlist_add_check_white_24dp.png" />

@@ -61,7 +61,7 @@
             this.txtPath = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnWatch = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnDownload = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.prbDownload = new System.Windows.Forms.ProgressBar();
             this.cobResolution = new System.Windows.Forms.ComboBox();
             this.lblPercent = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel21 = new MaterialSkin.Controls.MaterialLabel();
@@ -98,6 +98,16 @@
             this.btnLoadMedia = new MaterialSkin.Controls.MaterialRaisedButton();
             this.list_FileNhac = new System.Windows.Forms.ListBox();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.picMark = new System.Windows.Forms.PictureBox();
+            this.materialLabel24 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnLAN = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.txtIP = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.prbCoolDown = new System.Windows.Forms.ProgressBar();
+            this.txtNameClient = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pn = new System.Windows.Forms.Panel();
             this.mtsUngDung = new MaterialSkin.Controls.MaterialTabSelector();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnBackground = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -120,6 +130,9 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.sttBad = new MaterialSkin.Controls.MaterialProgressBar();
+            this.materialLabel25 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
+            this.timerCoolDown = new System.Windows.Forms.Timer(this.components);
             this.mtcUngDung.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -128,6 +141,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMark)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,12 +156,13 @@
             this.mtcUngDung.Controls.Add(this.tabPage1);
             this.mtcUngDung.Controls.Add(this.tabPage2);
             this.mtcUngDung.Controls.Add(this.tabPage5);
+            this.mtcUngDung.Controls.Add(this.tabPage3);
             this.mtcUngDung.Depth = 0;
             this.mtcUngDung.Location = new System.Drawing.Point(0, 109);
             this.mtcUngDung.MouseState = MaterialSkin.MouseState.HOVER;
             this.mtcUngDung.Name = "mtcUngDung";
             this.mtcUngDung.SelectedIndex = 0;
-            this.mtcUngDung.Size = new System.Drawing.Size(625, 448);
+            this.mtcUngDung.Size = new System.Drawing.Size(677, 492);
             this.mtcUngDung.TabIndex = 0;
             // 
             // tabPage4
@@ -175,7 +192,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(617, 422);
+            this.tabPage4.Size = new System.Drawing.Size(669, 466);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Đồng hồ";
             // 
@@ -505,7 +522,7 @@
             this.tabPage1.Controls.Add(this.txtPath);
             this.tabPage1.Controls.Add(this.btnWatch);
             this.tabPage1.Controls.Add(this.btnDownload);
-            this.tabPage1.Controls.Add(this.progressBar1);
+            this.tabPage1.Controls.Add(this.prbDownload);
             this.tabPage1.Controls.Add(this.cobResolution);
             this.tabPage1.Controls.Add(this.lblPercent);
             this.tabPage1.Controls.Add(this.materialLabel21);
@@ -517,7 +534,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(617, 422);
+            this.tabPage1.Size = new System.Drawing.Size(669, 466);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tải Video";
             // 
@@ -525,7 +542,7 @@
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(244, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(270, 6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(85, 41);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -539,7 +556,7 @@
             this.lbKT.Depth = 0;
             this.lbKT.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbKT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbKT.Location = new System.Drawing.Point(154, 215);
+            this.lbKT.Location = new System.Drawing.Point(180, 215);
             this.lbKT.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbKT.Name = "lbKT";
             this.lbKT.Size = new System.Drawing.Size(17, 19);
@@ -553,7 +570,7 @@
             this.btnPath.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnPath.Depth = 0;
             this.btnPath.Icon = null;
-            this.btnPath.Location = new System.Drawing.Point(481, 91);
+            this.btnPath.Location = new System.Drawing.Point(507, 91);
             this.btnPath.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPath.Name = "btnPath";
             this.btnPath.Primary = true;
@@ -571,7 +588,7 @@
             this.materialLabel22.Depth = 0;
             this.materialLabel22.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel22.Location = new System.Drawing.Point(62, 99);
+            this.materialLabel22.Location = new System.Drawing.Point(88, 99);
             this.materialLabel22.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel22.Name = "materialLabel22";
             this.materialLabel22.Size = new System.Drawing.Size(66, 19);
@@ -583,7 +600,7 @@
             this.txtPath.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtPath.Depth = 0;
             this.txtPath.Hint = "";
-            this.txtPath.Location = new System.Drawing.Point(158, 96);
+            this.txtPath.Location = new System.Drawing.Point(184, 96);
             this.txtPath.MaxLength = 32767;
             this.txtPath.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPath.Name = "txtPath";
@@ -605,7 +622,7 @@
             this.btnWatch.Depth = 0;
             this.btnWatch.Enabled = false;
             this.btnWatch.Icon = null;
-            this.btnWatch.Location = new System.Drawing.Point(369, 207);
+            this.btnWatch.Location = new System.Drawing.Point(395, 207);
             this.btnWatch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnWatch.Name = "btnWatch";
             this.btnWatch.Primary = true;
@@ -623,7 +640,7 @@
             this.btnDownload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDownload.Depth = 0;
             this.btnDownload.Icon = null;
-            this.btnDownload.Location = new System.Drawing.Point(467, 207);
+            this.btnDownload.Location = new System.Drawing.Point(493, 207);
             this.btnDownload.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Primary = true;
@@ -634,13 +651,13 @@
             this.btnDownload.UseVisualStyleBackColor = true;
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
-            // progressBar1
+            // prbDownload
             // 
-            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.progressBar1.Location = new System.Drawing.Point(158, 164);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(367, 23);
-            this.progressBar1.TabIndex = 3;
+            this.prbDownload.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.prbDownload.Location = new System.Drawing.Point(184, 164);
+            this.prbDownload.Name = "prbDownload";
+            this.prbDownload.Size = new System.Drawing.Size(367, 23);
+            this.prbDownload.TabIndex = 3;
             // 
             // cobResolution
             // 
@@ -652,7 +669,7 @@
             "360",
             "480",
             "720"});
-            this.cobResolution.Location = new System.Drawing.Point(158, 130);
+            this.cobResolution.Location = new System.Drawing.Point(184, 130);
             this.cobResolution.Name = "cobResolution";
             this.cobResolution.Size = new System.Drawing.Size(171, 26);
             this.cobResolution.TabIndex = 2;
@@ -665,7 +682,7 @@
             this.lblPercent.Depth = 0;
             this.lblPercent.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblPercent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPercent.Location = new System.Drawing.Point(531, 168);
+            this.lblPercent.Location = new System.Drawing.Point(557, 168);
             this.lblPercent.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPercent.Name = "lblPercent";
             this.lblPercent.Size = new System.Drawing.Size(28, 19);
@@ -679,7 +696,7 @@
             this.materialLabel21.Depth = 0;
             this.materialLabel21.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel21.Location = new System.Drawing.Point(62, 167);
+            this.materialLabel21.Location = new System.Drawing.Point(88, 167);
             this.materialLabel21.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel21.Name = "materialLabel21";
             this.materialLabel21.Size = new System.Drawing.Size(64, 19);
@@ -693,7 +710,7 @@
             this.materialLabel23.Depth = 0;
             this.materialLabel23.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel23.Location = new System.Drawing.Point(335, 133);
+            this.materialLabel23.Location = new System.Drawing.Point(361, 133);
             this.materialLabel23.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel23.Name = "materialLabel23";
             this.materialLabel23.Size = new System.Drawing.Size(224, 19);
@@ -707,7 +724,7 @@
             this.materialLabel20.Depth = 0;
             this.materialLabel20.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel20.Location = new System.Drawing.Point(62, 133);
+            this.materialLabel20.Location = new System.Drawing.Point(88, 133);
             this.materialLabel20.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel20.Name = "materialLabel20";
             this.materialLabel20.Size = new System.Drawing.Size(74, 19);
@@ -721,7 +738,7 @@
             this.materialLabel19.Depth = 0;
             this.materialLabel19.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel19.Location = new System.Drawing.Point(62, 65);
+            this.materialLabel19.Location = new System.Drawing.Point(88, 65);
             this.materialLabel19.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel19.Name = "materialLabel19";
             this.materialLabel19.Size = new System.Drawing.Size(57, 19);
@@ -735,7 +752,7 @@
             this.materialLabel18.Depth = 0;
             this.materialLabel18.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel18.Location = new System.Drawing.Point(62, 29);
+            this.materialLabel18.Location = new System.Drawing.Point(88, 29);
             this.materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel18.Name = "materialLabel18";
             this.materialLabel18.Size = new System.Drawing.Size(159, 19);
@@ -747,7 +764,7 @@
             this.txtLink.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtLink.Depth = 0;
             this.txtLink.Hint = "";
-            this.txtLink.Location = new System.Drawing.Point(158, 61);
+            this.txtLink.Location = new System.Drawing.Point(184, 61);
             this.txtLink.MaxLength = 32767;
             this.txtLink.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtLink.Name = "txtLink";
@@ -785,7 +802,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(617, 422);
+            this.tabPage2.Size = new System.Drawing.Size(669, 466);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tiện ích";
             // 
@@ -1066,7 +1083,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(617, 422);
+            this.tabPage5.Size = new System.Drawing.Size(669, 466);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Media";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1221,6 +1238,136 @@
             this.toolTip1.SetToolTip(this.axWindowsMediaPlayer1, "Trình phát nhạc");
             this.axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.panel3);
+            this.tabPage3.Controls.Add(this.panel2);
+            this.tabPage3.Controls.Add(this.pn);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(669, 466);
+            this.tabPage3.TabIndex = 5;
+            this.tabPage3.Text = "Caro";
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Location = new System.Drawing.Point(462, 216);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(201, 191);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.picMark);
+            this.panel2.Controls.Add(this.materialLabel25);
+            this.panel2.Controls.Add(this.materialLabel26);
+            this.panel2.Controls.Add(this.materialLabel24);
+            this.panel2.Controls.Add(this.btnLAN);
+            this.panel2.Controls.Add(this.txtIP);
+            this.panel2.Controls.Add(this.prbCoolDown);
+            this.panel2.Controls.Add(this.txtNameClient);
+            this.panel2.Location = new System.Drawing.Point(462, 7);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(201, 206);
+            this.panel2.TabIndex = 1;
+            // 
+            // picMark
+            // 
+            this.picMark.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picMark.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picMark.Location = new System.Drawing.Point(126, 41);
+            this.picMark.Name = "picMark";
+            this.picMark.Size = new System.Drawing.Size(71, 71);
+            this.picMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMark.TabIndex = 5;
+            this.picMark.TabStop = false;
+            // 
+            // materialLabel24
+            // 
+            this.materialLabel24.AutoSize = true;
+            this.materialLabel24.Depth = 0;
+            this.materialLabel24.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel24.Location = new System.Drawing.Point(3, 126);
+            this.materialLabel24.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel24.Name = "materialLabel24";
+            this.materialLabel24.Size = new System.Drawing.Size(118, 19);
+            this.materialLabel24.TabIndex = 4;
+            this.materialLabel24.Text = "5 in a line to win";
+            // 
+            // btnLAN
+            // 
+            this.btnLAN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLAN.AutoSize = true;
+            this.btnLAN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLAN.Depth = 0;
+            this.btnLAN.Icon = null;
+            this.btnLAN.Location = new System.Drawing.Point(126, 118);
+            this.btnLAN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLAN.Name = "btnLAN";
+            this.btnLAN.Primary = true;
+            this.btnLAN.Size = new System.Drawing.Size(72, 36);
+            this.btnLAN.TabIndex = 3;
+            this.btnLAN.Text = "Kết nối";
+            this.btnLAN.UseVisualStyleBackColor = true;
+            // 
+            // txtIP
+            // 
+            this.txtIP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIP.Depth = 0;
+            this.txtIP.Hint = "";
+            this.txtIP.Location = new System.Drawing.Point(3, 60);
+            this.txtIP.MaxLength = 32767;
+            this.txtIP.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtIP.Name = "txtIP";
+            this.txtIP.PasswordChar = '\0';
+            this.txtIP.SelectedText = "";
+            this.txtIP.SelectionLength = 0;
+            this.txtIP.SelectionStart = 0;
+            this.txtIP.Size = new System.Drawing.Size(118, 23);
+            this.txtIP.TabIndex = 2;
+            this.txtIP.TabStop = false;
+            this.txtIP.Text = "192.168.1.1";
+            this.txtIP.UseSystemPasswordChar = false;
+            // 
+            // prbCoolDown
+            // 
+            this.prbCoolDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.prbCoolDown.Location = new System.Drawing.Point(7, 180);
+            this.prbCoolDown.Name = "prbCoolDown";
+            this.prbCoolDown.Size = new System.Drawing.Size(190, 23);
+            this.prbCoolDown.TabIndex = 1;
+            // 
+            // txtNameClient
+            // 
+            this.txtNameClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNameClient.Depth = 0;
+            this.txtNameClient.Hint = "";
+            this.txtNameClient.Location = new System.Drawing.Point(3, 31);
+            this.txtNameClient.MaxLength = 32767;
+            this.txtNameClient.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtNameClient.Name = "txtNameClient";
+            this.txtNameClient.PasswordChar = '\0';
+            this.txtNameClient.SelectedText = "";
+            this.txtNameClient.SelectionLength = 0;
+            this.txtNameClient.SelectionStart = 0;
+            this.txtNameClient.Size = new System.Drawing.Size(117, 23);
+            this.txtNameClient.TabIndex = 0;
+            this.txtNameClient.TabStop = false;
+            this.txtNameClient.Text = "ABC";
+            this.txtNameClient.UseSystemPasswordChar = false;
+            // 
+            // pn
+            // 
+            this.pn.Location = new System.Drawing.Point(4, 7);
+            this.pn.Name = "pn";
+            this.pn.Size = new System.Drawing.Size(450, 450);
+            this.pn.TabIndex = 0;
+            // 
             // mtsUngDung
             // 
             this.mtsUngDung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1230,7 +1377,7 @@
             this.mtsUngDung.Location = new System.Drawing.Point(0, 64);
             this.mtsUngDung.MouseState = MaterialSkin.MouseState.HOVER;
             this.mtsUngDung.Name = "mtsUngDung";
-            this.mtsUngDung.Size = new System.Drawing.Size(625, 43);
+            this.mtsUngDung.Size = new System.Drawing.Size(677, 43);
             this.mtsUngDung.TabIndex = 1;
             this.mtsUngDung.Text = "materialTabSelector1";
             // 
@@ -1245,7 +1392,7 @@
             this.btnBackground.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnBackground.Depth = 0;
             this.btnBackground.Icon = null;
-            this.btnBackground.Location = new System.Drawing.Point(489, 574);
+            this.btnBackground.Location = new System.Drawing.Point(541, 618);
             this.btnBackground.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBackground.Name = "btnBackground";
             this.btnBackground.Primary = true;
@@ -1263,7 +1410,7 @@
             this.btnColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnColor.Depth = 0;
             this.btnColor.Icon = null;
-            this.btnColor.Location = new System.Drawing.Point(406, 574);
+            this.btnColor.Location = new System.Drawing.Point(458, 618);
             this.btnColor.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnColor.Name = "btnColor";
             this.btnColor.Primary = true;
@@ -1408,7 +1555,7 @@
             this.btnExit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnExit.Depth = 0;
             this.btnExit.Icon = global::MaterialFormSkin.Properties.Resources.hide;
-            this.btnExit.Location = new System.Drawing.Point(569, 574);
+            this.btnExit.Location = new System.Drawing.Point(621, 618);
             this.btnExit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnExit.Name = "btnExit";
             this.btnExit.Primary = true;
@@ -1423,11 +1570,41 @@
             this.sttBad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sttBad.Depth = 0;
-            this.sttBad.Location = new System.Drawing.Point(0, 563);
+            this.sttBad.Location = new System.Drawing.Point(0, 607);
             this.sttBad.MouseState = MaterialSkin.MouseState.HOVER;
             this.sttBad.Name = "sttBad";
-            this.sttBad.Size = new System.Drawing.Size(625, 5);
+            this.sttBad.Size = new System.Drawing.Size(677, 5);
             this.sttBad.TabIndex = 4;
+            // 
+            // materialLabel25
+            // 
+            this.materialLabel25.AutoSize = true;
+            this.materialLabel25.Depth = 0;
+            this.materialLabel25.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel25.Location = new System.Drawing.Point(3, 9);
+            this.materialLabel25.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel25.Name = "materialLabel25";
+            this.materialLabel25.Size = new System.Drawing.Size(140, 19);
+            this.materialLabel25.TabIndex = 4;
+            this.materialLabel25.Text = "Người chơi hiện tại:";
+            // 
+            // materialLabel26
+            // 
+            this.materialLabel26.AutoSize = true;
+            this.materialLabel26.Depth = 0;
+            this.materialLabel26.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel26.Location = new System.Drawing.Point(3, 157);
+            this.materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel26.Name = "materialLabel26";
+            this.materialLabel26.Size = new System.Drawing.Size(75, 19);
+            this.materialLabel26.TabIndex = 4;
+            this.materialLabel26.Text = "Thời gian:";
+            // 
+            // timerCoolDown
+            // 
+            this.timerCoolDown.Tick += new System.EventHandler(this.timerCoolDown_Tick);
             // 
             // MaterialMain
             // 
@@ -1435,7 +1612,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(625, 615);
+            this.ClientSize = new System.Drawing.Size(677, 659);
             this.Controls.Add(this.btnColor);
             this.Controls.Add(this.sttBad);
             this.Controls.Add(this.btnBackground);
@@ -1460,6 +1637,10 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMark)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);
             this.contextMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -1547,7 +1728,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel18;
         private MaterialSkin.Controls.MaterialLabel materialLabel20;
         private MaterialSkin.Controls.MaterialLabel materialLabel19;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar prbDownload;
         private System.Windows.Forms.ComboBox cobResolution;
         private MaterialSkin.Controls.MaterialLabel materialLabel21;
         private MaterialSkin.Controls.MaterialLabel lblPercent;
@@ -1559,6 +1740,19 @@
         private MaterialSkin.Controls.MaterialLabel lbKT;
         private System.Windows.Forms.PictureBox pictureBox2;
         private MaterialSkin.Controls.MaterialRaisedButton btnWatch;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Panel pn;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtNameClient;
+        private System.Windows.Forms.ProgressBar prbCoolDown;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtIP;
+        private MaterialSkin.Controls.MaterialRaisedButton btnLAN;
+        private MaterialSkin.Controls.MaterialLabel materialLabel24;
+        private System.Windows.Forms.PictureBox picMark;
+        private MaterialSkin.Controls.MaterialLabel materialLabel25;
+        private MaterialSkin.Controls.MaterialLabel materialLabel26;
+        private System.Windows.Forms.Timer timerCoolDown;
     }
 }
 
