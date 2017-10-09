@@ -112,6 +112,8 @@
   <ItemGroup>
     <Compile Include="DAO\ChessBoardManager.cs" />
     <Compile Include="DAO\Cons.cs" />
+    <Compile Include="DAO\PlayInfo.cs" />
+    <Compile Include="DAO\SocketManager.cs" />
     <Compile Include="DTO\Player.cs" />
     <Compile Include="MaterialMain.cs">
       <SubType>Form</SubType>

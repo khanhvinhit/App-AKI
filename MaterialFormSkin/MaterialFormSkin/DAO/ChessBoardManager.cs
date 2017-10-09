@@ -54,12 +54,14 @@ namespace MaterialFormSkin.DAO
             set { matrix = value; }
         }
 
-        private  event EventHandler playerMarked;
+
+
+        private event EventHandler playerMarked;
         public event EventHandler PlayerMarked
         {
             add { playerMarked += value; }
             remove { playerMarked -= value; }
-            
+
         }
 
         private event EventHandler endedGame;
@@ -68,6 +70,13 @@ namespace MaterialFormSkin.DAO
             add { endedGame += value; }
             remove { endedGame -= value; }
 
+        }
+
+        private Stack<PlayInfo> playTimeLine;
+        public Stack<PlayInfo> PlayTimeLine
+        {
+            get { return playTimeLine; }
+            set { playTimeLine = value; }
         }
         #endregion
 
@@ -83,15 +92,20 @@ namespace MaterialFormSkin.DAO
                 new Player("Vinh",Properties.Resources.o),
                 new Player("Khánh",Properties.Resources.x)
             };
-            CurrentPlayer = 0;
-            ChangePlayer();
+            
         }
         #endregion
 
         #region methhod
         public void DrawChessBoard()
         {
-            chessBoard.Enabled = true; 
+            chessBoard.Enabled = true;
+            chessBoard.Controls.Clear();
+
+            playTimeLine = new Stack<PlayInfo>();
+
+            CurrentPlayer = 0;
+            ChangePlayer();
             Matrix = new List<List<Button>>();
             Button old = new Button() { Width = 0, Location = new Point(0, 0) };
             for (int j = 0; j < DAO.Cons.CHESS_BOARD_WIDTH; j++)
@@ -126,11 +140,14 @@ namespace MaterialFormSkin.DAO
             Button btn = sender as Button;
             if (btn.BackgroundImage != null) return;
             MarkB(btn);
+
+            PlayTimeLine.Push(new PlayInfo(GetChessPoint(btn), currentPlayer));
+            CurrentPlayer = CurrentPlayer == 1 ? 0 : 1;
             ChangePlayer();
 
-            if (playerMarked!=null)
+            if (playerMarked != null)
             {
-                playerMarked(this,new EventArgs());
+                playerMarked(this, new EventArgs());
             }
 
             if (isEndGame(btn))
@@ -141,13 +158,40 @@ namespace MaterialFormSkin.DAO
 
         public void EndGame()
         {
-            if (endedGame!=null)
+            if (endedGame != null)
             {
-                endedGame(this,new EventArgs());
+                endedGame(this, new EventArgs());
             }
             //MessageBox.Show("Kết thúc");
         }
 
+
+        public bool Undo()
+        {
+            if (PlayTimeLine.Count <= 0)
+            {
+                return false;
+            }
+            PlayInfo oldpoint = playTimeLine.Pop();
+            Button btn = Matrix[oldpoint.Point.Y][oldpoint.Point.X];
+
+            btn.BackgroundImage = null;
+
+            
+            if (PlayTimeLine.Count <= 0)
+            {
+                
+                CurrentPlayer = 0;
+            }
+            else
+            {
+                oldpoint = playTimeLine.Peek();
+                CurrentPlayer = oldpoint.CurrentPlayer == 1 ? 0 : 1;
+            }
+
+            ChangePlayer();
+            return true;
+        }
         private bool isEndGame(Button btn)
         {
             return isEndHorizontal(btn) || isEndVertical(btn) || isEndPrimary(btn) || isEndSub(btn);
@@ -297,7 +341,7 @@ namespace MaterialFormSkin.DAO
         private void MarkB(Button btn)
         {
             btn.BackgroundImage = Player[CurrentPlayer].Mark;
-            CurrentPlayer = CurrentPlayer == 1 ? 0 : 1;
+
             btn.BackgroundImageLayout = ImageLayout.Zoom;
         }
 

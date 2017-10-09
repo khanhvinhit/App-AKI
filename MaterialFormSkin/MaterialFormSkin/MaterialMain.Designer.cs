@@ -100,14 +100,17 @@
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.picMark = new System.Windows.Forms.PictureBox();
             this.materialLabel24 = new MaterialSkin.Controls.MaterialLabel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.materialLabel25 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnQuayLai = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnLAN = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnNewGame = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtIP = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.prbCoolDown = new System.Windows.Forms.ProgressBar();
             this.txtNameClient = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pn = new System.Windows.Forms.Panel();
+            this.prbCoolDown = new System.Windows.Forms.ProgressBar();
             this.mtsUngDung = new MaterialSkin.Controls.MaterialTabSelector();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnBackground = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -130,8 +133,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.sttBad = new MaterialSkin.Controls.MaterialProgressBar();
-            this.materialLabel25 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             this.timerCoolDown = new System.Windows.Forms.Timer(this.components);
             this.mtcUngDung.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -142,8 +143,9 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMark)).BeginInit();
+            this.panel2.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1244,6 +1246,7 @@
             this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Controls.Add(this.pn);
+            this.tabPage3.Controls.Add(this.prbCoolDown);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -1254,34 +1257,20 @@
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Location = new System.Drawing.Point(462, 216);
+            this.panel3.Controls.Add(this.picMark);
+            this.panel3.Controls.Add(this.materialLabel24);
+            this.panel3.Location = new System.Drawing.Point(462, 149);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(201, 191);
             this.panel3.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.picMark);
-            this.panel2.Controls.Add(this.materialLabel25);
-            this.panel2.Controls.Add(this.materialLabel26);
-            this.panel2.Controls.Add(this.materialLabel24);
-            this.panel2.Controls.Add(this.btnLAN);
-            this.panel2.Controls.Add(this.txtIP);
-            this.panel2.Controls.Add(this.prbCoolDown);
-            this.panel2.Controls.Add(this.txtNameClient);
-            this.panel2.Location = new System.Drawing.Point(462, 7);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(201, 206);
-            this.panel2.TabIndex = 1;
             // 
             // picMark
             // 
             this.picMark.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picMark.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picMark.Location = new System.Drawing.Point(126, 41);
+            this.picMark.Location = new System.Drawing.Point(65, 45);
             this.picMark.Name = "picMark";
-            this.picMark.Size = new System.Drawing.Size(71, 71);
+            this.picMark.Size = new System.Drawing.Size(132, 132);
             this.picMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picMark.TabIndex = 5;
             this.picMark.TabStop = false;
@@ -1292,12 +1281,56 @@
             this.materialLabel24.Depth = 0;
             this.materialLabel24.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel24.Location = new System.Drawing.Point(3, 126);
+            this.materialLabel24.Location = new System.Drawing.Point(61, 14);
             this.materialLabel24.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel24.Name = "materialLabel24";
             this.materialLabel24.Size = new System.Drawing.Size(118, 19);
             this.materialLabel24.TabIndex = 4;
             this.materialLabel24.Text = "5 in a line to win";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.materialLabel25);
+            this.panel2.Controls.Add(this.btnQuayLai);
+            this.panel2.Controls.Add(this.btnLAN);
+            this.panel2.Controls.Add(this.btnNewGame);
+            this.panel2.Controls.Add(this.txtIP);
+            this.panel2.Controls.Add(this.txtNameClient);
+            this.panel2.Location = new System.Drawing.Point(462, 7);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(201, 136);
+            this.panel2.TabIndex = 1;
+            // 
+            // materialLabel25
+            // 
+            this.materialLabel25.AutoSize = true;
+            this.materialLabel25.Depth = 0;
+            this.materialLabel25.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel25.Location = new System.Drawing.Point(3, 9);
+            this.materialLabel25.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel25.Name = "materialLabel25";
+            this.materialLabel25.Size = new System.Drawing.Size(140, 19);
+            this.materialLabel25.TabIndex = 4;
+            this.materialLabel25.Text = "Người chơi hiện tại:";
+            // 
+            // btnQuayLai
+            // 
+            this.btnQuayLai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuayLai.AutoSize = true;
+            this.btnQuayLai.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuayLai.Depth = 0;
+            this.btnQuayLai.Icon = global::MaterialFormSkin.Properties.Resources.reload;
+            this.btnQuayLai.Location = new System.Drawing.Point(65, 89);
+            this.btnQuayLai.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuayLai.Name = "btnQuayLai";
+            this.btnQuayLai.Primary = true;
+            this.btnQuayLai.Size = new System.Drawing.Size(44, 36);
+            this.btnQuayLai.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btnQuayLai, "Quay lại bước vừa đi");
+            this.btnQuayLai.UseVisualStyleBackColor = true;
+            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
             // 
             // btnLAN
             // 
@@ -1306,14 +1339,34 @@
             this.btnLAN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnLAN.Depth = 0;
             this.btnLAN.Icon = null;
-            this.btnLAN.Location = new System.Drawing.Point(126, 118);
+            this.btnLAN.Location = new System.Drawing.Point(125, 47);
             this.btnLAN.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLAN.Name = "btnLAN";
             this.btnLAN.Primary = true;
             this.btnLAN.Size = new System.Drawing.Size(72, 36);
             this.btnLAN.TabIndex = 3;
             this.btnLAN.Text = "Kết nối";
+            this.toolTip1.SetToolTip(this.btnLAN, "Kết nối bạn cùng chơi");
             this.btnLAN.UseVisualStyleBackColor = true;
+            this.btnLAN.Click += new System.EventHandler(this.btnLAN_Click);
+            // 
+            // btnNewGame
+            // 
+            this.btnNewGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewGame.AutoSize = true;
+            this.btnNewGame.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnNewGame.Depth = 0;
+            this.btnNewGame.Icon = null;
+            this.btnNewGame.Location = new System.Drawing.Point(115, 89);
+            this.btnNewGame.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Primary = true;
+            this.btnNewGame.Size = new System.Drawing.Size(82, 36);
+            this.btnNewGame.TabIndex = 6;
+            this.btnNewGame.Text = "Chơi mới";
+            this.toolTip1.SetToolTip(this.btnNewGame, "Nhấn để chơi mới");
+            this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // txtIP
             // 
@@ -1333,14 +1386,6 @@
             this.txtIP.TabStop = false;
             this.txtIP.Text = "192.168.1.1";
             this.txtIP.UseSystemPasswordChar = false;
-            // 
-            // prbCoolDown
-            // 
-            this.prbCoolDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.prbCoolDown.Location = new System.Drawing.Point(7, 180);
-            this.prbCoolDown.Name = "prbCoolDown";
-            this.prbCoolDown.Size = new System.Drawing.Size(190, 23);
-            this.prbCoolDown.TabIndex = 1;
             // 
             // txtNameClient
             // 
@@ -1363,10 +1408,21 @@
             // 
             // pn
             // 
+            this.pn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.pn.Location = new System.Drawing.Point(4, 7);
             this.pn.Name = "pn";
-            this.pn.Size = new System.Drawing.Size(450, 450);
+            this.pn.Size = new System.Drawing.Size(450, 424);
             this.pn.TabIndex = 0;
+            // 
+            // prbCoolDown
+            // 
+            this.prbCoolDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.prbCoolDown.Location = new System.Drawing.Point(4, 437);
+            this.prbCoolDown.Name = "prbCoolDown";
+            this.prbCoolDown.Size = new System.Drawing.Size(659, 23);
+            this.prbCoolDown.TabIndex = 1;
             // 
             // mtsUngDung
             // 
@@ -1576,32 +1632,6 @@
             this.sttBad.Size = new System.Drawing.Size(677, 5);
             this.sttBad.TabIndex = 4;
             // 
-            // materialLabel25
-            // 
-            this.materialLabel25.AutoSize = true;
-            this.materialLabel25.Depth = 0;
-            this.materialLabel25.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel25.Location = new System.Drawing.Point(3, 9);
-            this.materialLabel25.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel25.Name = "materialLabel25";
-            this.materialLabel25.Size = new System.Drawing.Size(140, 19);
-            this.materialLabel25.TabIndex = 4;
-            this.materialLabel25.Text = "Người chơi hiện tại:";
-            // 
-            // materialLabel26
-            // 
-            this.materialLabel26.AutoSize = true;
-            this.materialLabel26.Depth = 0;
-            this.materialLabel26.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel26.Location = new System.Drawing.Point(3, 157);
-            this.materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel26.Name = "materialLabel26";
-            this.materialLabel26.Size = new System.Drawing.Size(75, 19);
-            this.materialLabel26.TabIndex = 4;
-            this.materialLabel26.Text = "Thời gian:";
-            // 
             // timerCoolDown
             // 
             this.timerCoolDown.Tick += new System.EventHandler(this.timerCoolDown_Tick);
@@ -1625,6 +1655,7 @@
             this.Text = "App AKI";
             this.toolTip1.SetToolTip(this, "Ứng dụng AKI v1");
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MaterialMain_FormClosing);
+            this.Shown += new System.EventHandler(this.MaterialMain_Shown);
             this.mtcUngDung.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
@@ -1638,9 +1669,11 @@
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMark)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picMark)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);
             this.contextMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -1751,8 +1784,9 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel24;
         private System.Windows.Forms.PictureBox picMark;
         private MaterialSkin.Controls.MaterialLabel materialLabel25;
-        private MaterialSkin.Controls.MaterialLabel materialLabel26;
         private System.Windows.Forms.Timer timerCoolDown;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuayLai;
+        private MaterialSkin.Controls.MaterialRaisedButton btnNewGame;
     }
 }
 

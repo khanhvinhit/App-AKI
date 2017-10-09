@@ -35,7 +35,7 @@ namespace MaterialFormSkin
         Stopwatch Stopwatch = new Stopwatch();
 
         private DAO.ChessBoardManager chessBoard;
-
+        private SocketManager socket;
         #endregion
         #region Initialize
         public MaterialMain()
@@ -61,7 +61,8 @@ namespace MaterialFormSkin
             prbCoolDown.Value = 0;
             timerCoolDown.Interval = Cons.COOL_DOWN_INTERVAL;
 
-            chessBoard.DrawChessBoard();
+            socket = new SocketManager();
+            NewGame();
 
         }
 
@@ -72,6 +73,7 @@ namespace MaterialFormSkin
         {
             timerCoolDown.Stop();
             pn.Enabled = false;
+            btnQuayLai.Enabled = false;
             MessageBox.Show("Kết thúc");
         }
         /// <summary>
@@ -311,6 +313,18 @@ namespace MaterialFormSkin
             }
         }
 
+        void NewGame()
+        {
+            prbCoolDown.Value = 0;
+            timerCoolDown.Stop();
+            btnQuayLai.Enabled = true;
+            chessBoard.DrawChessBoard();
+        }
+
+        void UndoGame()
+        {
+            chessBoard.Undo();
+        }
         #endregion
         #region Event
 
@@ -625,9 +639,76 @@ namespace MaterialFormSkin
             if (prbCoolDown.Value >= prbCoolDown.Maximum)
             {
                 EndGame();
-                
+
             }
         }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            NewGame();
+        }
+
+        private void btnQuayLai_Click(object sender, EventArgs e)
+        {
+            UndoGame();
+        }
+
+        private void btnLAN_Click(object sender, EventArgs e)
+        {
+            socket.IP = txtIP.Text;
+
+            if (!socket.ConnectServer())
+            {
+                socket.CreateServer();
+                Thread listenThread = new Thread(() =>
+                {
+                    while (true)
+                    {
+                        Thread.Sleep(500);
+                        try
+                        {
+                            Listen();
+                            break;
+                        }
+                        catch
+                        {
+                        }
+
+                    }
+
+                });
+                listenThread.IsBackground = true;
+                listenThread.Start();
+            }
+            else
+            {
+                Thread listenThread = new Thread(() =>
+                {
+                    Listen();
+                });
+                listenThread.IsBackground = true;
+                listenThread.Start();
+                socket.Send("Thông tin từ client");
+            }
+
+        }
+
+        private void MaterialMain_Shown(object sender, EventArgs e)
+        {
+            txtIP.Text = socket.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
+
+            if (string.IsNullOrEmpty(txtIP.Text))
+            {
+                txtIP.Text = socket.GetLocalIPv4(NetworkInterfaceType.Ethernet);
+            }
+        }
+
+        void Listen()
+        {
+            string data = (string)socket.Receive();
+            MessageBox.Show(data, "Thông báo");
+        }
+
 
         private void list_FileNhac_KeyDown(object sender, KeyEventArgs e)
         {
